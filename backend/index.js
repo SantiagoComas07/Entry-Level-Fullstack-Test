@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 const { sequelize } = require('./models');
 const usersController = require('./controllers/users.controller');
+const authController = require('./controllers/auth.controller');
 
 app.use(express.json());
 
@@ -16,6 +17,7 @@ app.get('/api/health', (req, res) => {
 });
 
 app.use('/users', usersController);
+app.use('/auth', authController);
 
 sequelize.authenticate()
   .then(() => {
