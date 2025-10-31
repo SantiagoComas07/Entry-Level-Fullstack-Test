@@ -1,6 +1,8 @@
-const { User } = require('../models');
+import db from '../models/index.js';
 
-const getUsers = async () => {
+const { User } = db;
+
+export const getUsers = async () => {
   try {
     const users = await User.findAll();
     return users;
@@ -8,8 +10,4 @@ const getUsers = async () => {
     console.error('Error fetching users from database:', error);
     throw error;
   }
-};
-
-module.exports = {
-  getUsers
 };

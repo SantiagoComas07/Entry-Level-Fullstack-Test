@@ -1,10 +1,11 @@
-require('dotenv').config();
-const express = require('express');
+import 'dotenv/config';
+import express from 'express';
+import { sequelize } from './models/index.js';
+import usersController from './controllers/users.controller.js';
+import authController from './controllers/auth.controller.js';
+
 const app = express();
 const port = process.env.PORT || 3001;
-const { sequelize } = require('./models');
-const usersController = require('./controllers/users.controller');
-const authController = require('./controllers/auth.controller');
 
 app.use(express.json());
 

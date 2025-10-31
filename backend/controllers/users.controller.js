@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import * as usersService from '../services/users.service.js';
+
 const router = express.Router();
-const usersService = require('../services/users.service');
 
 router.get('/', async (req, res) => {
   try {
@@ -12,4 +13,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
